@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>안녕하세요</title>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, max-content);
+      gap: 16px;
+    }
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .item img {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <p style="color: blue;">안녕하세요</p>
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+
+    for (let n = 1; n <= 10; n++) {
+      const item = document.createElement("div");
+      item.className = "item";
+      item.innerHTML =
+        '<img src="tangerine.png" alt="제주 귤 뽑기 화면 ' + n + '">' +
+        '<button type="button">' + n + '번</button>';
+      item.querySelector("button").addEventListener("click", () => {
+        alert(n + "번");
+      });
+      gallery.appendChild(item);
+    }
+  </script>
+</body>
+</html>
